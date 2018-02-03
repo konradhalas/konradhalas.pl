@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Talks</h2>
+    <p>List of talks and workshops given by me within various conferences and local groups.</p>
+    {% for talk in talks %}
+        <h3>{{ talk.title }}</h3>
+        <h5 class="text-muted">2010-2011</h5>
+        <p>Events:</p>
+        <ul>
+            {% for event in talk.events.all %}
+                <li>
+                    {% if event.url %}
+                        <a href="{{ event.url }}" target="_blank">{{ event.name }}</a>
+                    {% else %}
+                        {{ event.name }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
