@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Konrad Hałas</title>
+    <meta name="description" content="Konrad Hałas personal website.">
+    <meta name="author" content="Konrad Hałas">
+    <title>{% block title %}Konrad Hałas{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -46,17 +46,17 @@
         </div>
     </div>
 </nav>
+{% block header %}
 <header class="masthead">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                {% block header %}
-                {% endblock %}
             </div>
         </div>
     </div>
 </header>
+{% endblock %}
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -104,6 +104,14 @@
 <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
 <script src="{% static 'js/clean-blog.js' %}"></script>
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-38065091-3');ga('send','pageview');
+</script>
 {% endcompress %}
 </body>
 </html>

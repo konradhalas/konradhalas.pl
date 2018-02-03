@@ -1,13 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block header %}
-<div class="site-heading">
-    <h1>Konrad Hałas</h1>
-    <span class="subheading">personal website</span>
-</div>
+    <header class="masthead" style="background-image: url('{% static 'img/home_bg.jpg' %}');" title="Photo by http://korsan.studio/">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Konrad Hałas</h1>
+                        <span class="subheading">personal website</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 {% endblock %}
 
 {% block content %}
-<h2>Hi!</h2>
-<p>Hi, my name is Konrad and this is my website. I'm a full stack web developer (Python, Java, JS) and open source programmer.</p>
+    <h2>Hi!</h2>
+    <p>
+        Hi, my name is Konrad and this is my website. I'm a full stack web developer (Python, Java, JS) and open source
+        programmer.
+    </p>
 {% endblock %}
