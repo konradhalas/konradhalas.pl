@@ -12,7 +12,9 @@
                 {% else %}
                     {{ talk.start_year }}
                 {% endif %}
+                {% if talk.slides %}
                 <a href="{{ talk.slides.url }}"><i class="fa fa-file"></i></a>
+                {% endif %}
             </h5>
             {% if talk.description %}
                 <p>{{ talk.description }}</p>
