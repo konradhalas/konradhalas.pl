@@ -1,22 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Talks</h2>
+    <h1>Talks</h1>
     <p>List of talks and workshops given by me within various conferences and local groups.</p>
     {% for talk in talks %}
-        <h3>{{ talk.title }}</h3>
-        <h5 class="text-muted">2010-2011</h5>
-        <p>Events:</p>
-        <ul>
-            {% for event in talk.events.all %}
-                <li>
-                    {% if event.url %}
-                        <a href="{{ event.url }}" target="_blank">{{ event.name }}</a>
-                    {% else %}
-                        {{ event.name }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="mb-5">
+            <h2>{{ talk.title }}</h2>
+            <h5 class="text-muted">
+                {% if talk.start_year != talk.end_year %}
+                    {{ talk.start_year }} - {{ talk.end_year }}
+                {% else %}
+                    {{ talk.start_year }}
+                {% endif %}
+                <a href="{{ talk.slides.url }}"><i class="fa fa-file"></i></a>
+            </h5>
+            {% if talk.description %}
+                <p>{{ talk.description }}</p>
+            {% endif %}
+            <h5>Events:</h5>
+            <ul>
+                {% for event in talk.events.all %}
+                    <li>
+                        {% if event.url %}
+                            <a href="{{ event.url }}" target="_blank">{{ event.name }}</a>
+                        {% else %}
+                            {{ event.name }}
+                        {% endif %}
+                        {% if event.video_url %}
+                            <a href="{{ event.video_url }}" target="_blank"><i class="fa fa-film"></i></a>
+                        {% endif %}
+                        <small class="text-muted">date: {{ event.date | date:'d-m-Y' }} -
+                            language: {{ event.get_language_display }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endfor %}
 {% endblock %}
