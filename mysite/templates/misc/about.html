@@ -5,10 +5,31 @@
 {% block title %}{{ block.super }} - About{% endblock %}
 
 {% block content %}
-    <img src="{% static 'img/me.png' %}" alt="Konrad Hałas photo" class="img-thumbnail my-photo">
     <h1>About</h1>
-    <p>My name is Konrad Hałas.</p>
-    <h2>Education</h2>
-    <h2>Employment</h2>
-    <h2>Conferences & meetups</h2>
+    <p>
+        My name is Konrad Hałas. I'm a full stack web developer, but Python is my language of choice.
+    </p>
+
+    <div class="text-center">
+        <img src="{% static 'img/me.png' %}" alt="Konrad Hałas photo" class="img-thumbnail my-photo">
+    </div>
+
+    <p>
+        I'm proud member of <a href="http://motivlab.com/" target="_blank">MotivLab</a> - cutting edge team of
+        specialists where we are crafting custom software solutions for our customers.
+    </p>
+
+    <p>
+        I'm also CTO in <a href="https://ulalachef.com/" target="_blank">Ulala Chef</a> - company where we are trying to
+        redefine gastronomy market.
+    </p>
+
+    <p>
+        I'm co-founder and co-organizer of Python Warsaw User Group -
+        <a href="http://pywaw.org" target="_blank">PyWaw</a>.
+    </p>
+
+    <p>
+        Currently I'm living in Warsaw, Poland.
+    </p>
 {% endblock %}
