@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Projects</h1>
+    <p>Some of my open source projects and communities which I'm involved.</p>
+    {% for project in projects %}
+        <div class="mb-5">
+            <h2><a href="{{ project.url }}" target="_blank">{{ project.name }}</a></h2>
+            <p>{{ project.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

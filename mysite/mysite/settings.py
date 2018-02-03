@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'compressor',
     'misc',
     'talks',
+    'projects',
 ]
 
 MIDDLEWARE = [
