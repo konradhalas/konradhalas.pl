@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block header %}
-    <header class="masthead" style="background-image: url('{% static 'img/home_bg.jpg' %}');" title="Photo by http://korsan.studio/">
+    <header class="masthead" style="background-image: url('{% static 'img/home_bg.jpg' %}');"
+            title="Photo by http://korsan.studio/">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -18,9 +19,19 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Hi!</h2>
+    <h2>Hi there!</h2>
     <p>
-        Hi, my name is Konrad and this is my website. I'm a full stack web developer (Python, Java, JS) and open source
-        programmer.
+        My name is Konrad and this is my personal website. Good to see you here!
+    </p>
+    <p>
+        If you are interested in who I am, please check <a href="{% url 'about' %}">about</a> page. There are a few
+        words about my background, interests and current involvements.
+    </p>
+    <p>
+        You can also find here <a href="{% url 'projects_list' %}">projects</a> which I'm involved in and
+        <a href="{% url 'talks_list' %}">talks</a> which I gave.
+    </p>
+    <p>
+        Feel free to contact me via <a href="mailto:halas.konrad@gmail.com">halas.konrad@gmail.com</a>.
     </p>
 {% endblock %}

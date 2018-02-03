@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}{{ block.super }} - About{% endblock %}
 
 {% block content %}
-<h2>About</h2>
+    <img src="{% static 'img/me.png' %}" alt="Konrad Hałas photo" class="img-thumbnail my-photo">
+    <h1>About</h1>
+    <p>My name is Konrad Hałas.</p>
+    <h2>Education</h2>
+    <h2>Employment</h2>
+    <h2>Conferences & meetups</h2>
 {% endblock %}
