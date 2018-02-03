@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: containers/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=$DEBUG
+      - DOMAIN=$DOMAIN
+      - DATABASE_URL=$DATABASE_URL
+      - SECRET_KEY=$SECRET_KEY
+      - MEDIA_ROOT=$MEDIA_ROOT
+      - STATIC_ROOT=$STATIC_ROOT
+    volumes:
+      - "${DATA_PATH}/static:${STATIC_ROOT}"
+      - "${DATA_PATH}/media:${MEDIA_ROOT}"
+  db:
+    image: postgres:10.1
+    environment:
+      - DB_PASSWORD=$DB_PASSWORD
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - "${DATA_PATH}/postgres:/var/lib/postgresql/data/pgdata"
+      - "${DATA_PATH}/pg_backups:/backups"
