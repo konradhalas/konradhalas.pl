@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import CASCADE
-from django.utils.text import slugify
+
+from utils.models import SlugifyUploadTo
 
 LANGUAGES = (
     ('polish', 'Polish'),
@@ -8,16 +9,10 @@ LANGUAGES = (
 )
 
 
-def talk_slides_upload(instance, filename):
-    extension = filename.split('.')[-1]
-    new_filename = slugify(instance.title)
-    return f'slides/{new_filename}.{extension}'
-
-
 class Talk(models.Model):
     title = models.CharField(max_length=256)
     description = models.TextField(blank=True, null=True)
-    slides = models.FileField(upload_to=talk_slides_upload, null=True, blank=True)
+    slides = models.FileField(upload_to=SlugifyUploadTo(path='slides', fields=['title']), null=True, blank=True)
 
     def start_year(self):
         event = self.events.last()

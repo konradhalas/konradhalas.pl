@@ -1,3 +1,7 @@
 .my-photo {
     height: 250px;
 }
+
+.codehilite pre {
+    padding: 15px;
+}

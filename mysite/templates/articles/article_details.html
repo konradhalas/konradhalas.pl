@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ block.super }} - {{ article.title }}{% endblock %}
+
+{% block extrahead %}
+    <meta property="og:title" content="{{ article.title }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ article.get_absolute_url }}"/>
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ article.image.url }}"/>
+    <meta property="og:article:published_time" content="{{ article.publish_date|date:"c" }}"/>
+    <meta property="og:article:modified_time" content="{{ article.update_date|date:"c" }}"/>
+{% endblock %}
+
+{% block header %}
+    <header class="masthead" style="background-image: url('{{ article.image.url }}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>{{ article.title }}</h1>
+                        {% if article.sub_title %}
+                            <h2 class="subheading">{{ article.sub_title }}</h2>
+                        {% endif %}
+                        <span class="meta">
+                            Posted on {{ article.publish_date }}
+                            {% if article.update_date != article.publish_date %}
+                                , updated on {{ article.publish_date }}
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    {{ article.html_content | safe }}
+    <hr>
+    <p><strong>Thank you for your time!</strong> If you have any questions or comments, please reach me on
+        <a href="https://twitter.com/konradhalas" target="_blank">Twitter</a> or via
+        <a href="mailto:halas.konrad@gmail.com">e-mail</a>.</p>
+{% endblock %}

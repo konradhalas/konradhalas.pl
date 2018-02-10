@@ -16,8 +16,11 @@
     <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
+    <link href="{% static 'css/highlight.css' %}" rel="stylesheet">
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
     {% endcompress %}
+    {% block extrahead %}
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -42,6 +45,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'projects_list' %}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'articles_list' %}">Articles</a>
                 </li>
             </ul>
         </div>

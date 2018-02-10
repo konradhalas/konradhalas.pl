@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} - Articles{% endblock %}
+
+{% block content %}
+    <h2>Articles</h2>
+    <p>Some of my articles.</p>
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                <br>
+                <small>
+                    published on {{ article.publish_date }}
+                    {% if article.update_date != article.publish_date %}
+                        , updated on {{ article.publish_date }}
+                    {% endif %}
+                </small>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
