@@ -1,6 +1,7 @@
 import markdown
 from django.db import models
 from django.urls import reverse
+from markdown_newtab import NewTabExtension
 
 from utils.models import SlugifyUploadTo
 
@@ -26,4 +27,7 @@ class Article(models.Model):
 
     @property
     def html_content(self):
-        return markdown.markdown(self.content, extensions=['markdown.extensions.codehilite'])
+        return markdown.markdown(self.content, extensions=[
+            'markdown.extensions.codehilite',
+            NewTabExtension(),
+        ])
