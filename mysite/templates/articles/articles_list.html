@@ -7,9 +7,8 @@
     <p>Some of my articles.</p>
     <ul>
         {% for article in articles %}
-            <li>
-                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-                <br>
+            <li class="mb-3">
+                <h4><a href="{{ article.get_absolute_url }}">{{ article.title }} <small>{{ article.sub_title }}</small></a></h4>
                 <small>
                     published on {{ article.publish_date }}
                     {% if article.update_date != article.publish_date %}
