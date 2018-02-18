@@ -1,6 +1,8 @@
 import markdown
 from django.db import models
+from django.template.defaultfilters import truncatewords
 from django.urls import reverse
+from django.utils.html import strip_tags
 from markdown_newtab import NewTabExtension
 
 from utils.models import SlugifyUploadTo
@@ -31,3 +33,7 @@ class Article(models.Model):
             'markdown.extensions.codehilite',
             NewTabExtension(),
         ])
+
+    @property
+    def text_summary(self):
+        return truncatewords(strip_tags(self.html_content), 50)

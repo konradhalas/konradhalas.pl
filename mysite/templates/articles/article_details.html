@@ -5,8 +5,8 @@
 {% block title %}{{ block.super }} - {{ article.title }}{% endblock %}
 
 {% block extrahead %}
-    <meta property="og:title" content="{{ article.title }}"/>
-    <meta property="og:description" content="{{ article.sub_title }}"/>
+    <meta property="og:title" content="{{ article.title }}: {{ article.sub_title }} - by Konrad Hałas"/>
+    <meta property="og:description" content="{{ article.text_summary }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ article.get_absolute_url }}"/>
     <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ article.image.url }}"/>
