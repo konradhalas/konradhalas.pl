@@ -4,7 +4,11 @@
 
 {% block content %}
     <h2>Articles</h2>
-    <p>Some of my articles.</p>
+    <p>
+        Some of my articles. If you want to stay up to date about my latest writings, you can follow me on
+        <a href="https://twitter.com/konradhalas" target="_blank">Twitter</a> or subscribe to
+        <a href="{% url 'articles_rss' %}">RSS</a> or <a href="{% url 'articles_atom' %}">Atom</a> feed.
+    </p>
     <ul>
         {% for article in articles %}
             <li class="mb-3">
