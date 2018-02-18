@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block title %}{{ article.title }}: {{ article.sub_title }} | {{ block.super }}{% endblock %}
+{% block description %}{{ article.text_summary }}{% endblock %}
 
 {% block extrahead %}
     <meta property="og:title" content="{{ article.title }}: {{ article.sub_title }} - by Konrad Hałas"/>
