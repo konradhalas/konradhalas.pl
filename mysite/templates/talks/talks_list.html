@@ -7,7 +7,7 @@
     <p>List of talks and workshops given by me within various conferences and local groups.</p>
     <ul>
     {% for talk in talks %}
-        <li class="mb-5">
+        <li class="mb-3">
             <h4>{{ talk.title }}</h4>
             <h5 class="text-muted">
                 {% if talk.start_year != talk.end_year %}
@@ -20,7 +20,7 @@
                 {% endif %}
             </h5>
             {% if talk.description %}
-                <p>{{ talk.description }}</p>
+                <p class="mb-3 mt-3">{{ talk.description }}</p>
             {% endif %}
             <h5>Events:</h5>
             <ul>
