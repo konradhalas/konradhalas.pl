@@ -5,9 +5,10 @@
 {% block content %}
     <h1>Talks</h1>
     <p>List of talks and workshops given by me within various conferences and local groups.</p>
+    <ul>
     {% for talk in talks %}
-        <div class="mb-5">
-            <h2>{{ talk.title }}</h2>
+        <li class="mb-5">
+            <h4>{{ talk.title }}</h4>
             <h5 class="text-muted">
                 {% if talk.start_year != talk.end_year %}
                     {{ talk.start_year }} - {{ talk.end_year }}
@@ -38,6 +39,7 @@
                     </li>
                 {% endfor %}
             </ul>
-        </div>
+        </li>
     {% endfor %}
+    </ul>
 {% endblock %}
