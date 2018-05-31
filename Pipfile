@@ -19,3 +19,4 @@ markdown-newtab = "*"
 
 [dev-packages]
 
+fabric = "*"
