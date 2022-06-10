@@ -6,9 +6,13 @@ services:
       dockerfile: containers/Dockerfile
     depends_on:
       - db
-    ports:
-      - "8000:8000"
+    expose:
+      - $VIRTUAL_PORT
     environment:
+      - VIRTUAL_HOST=$VIRTUAL_HOST
+      - VIRTUAL_PORT=$VIRTUAL_PORT
+      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
       - DEBUG=$DEBUG
       - DOMAIN=$DOMAIN
       - DATABASE_URL=$DATABASE_URL
